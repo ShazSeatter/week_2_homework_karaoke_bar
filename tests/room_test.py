@@ -29,3 +29,15 @@ class TestRoom(unittest.TestCase):
         actual = self.room.songs[0]
         self.assertEqual(expected, actual)
 
+    def test_can_find_song_by_title__not_found(self):
+        expected = None
+        actual = self.room.find_song_by_title("Hound Dog")
+        self.assertEqual(expected, actual)
+    
+    def test_can_find_song_by_title__found(self):
+        song = Song("Hound Dog", "Elvis Presley", "Rock")
+        self.room.add_song(song)
+        expected = song.title
+        actual = self.room.find_song_by_title("Hound Dog")
+        self.assertEqual(expected, actual)
+

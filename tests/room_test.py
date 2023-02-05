@@ -26,6 +26,6 @@ class TestRoom(unittest.TestCase):
         song = Song("Hound Dog", "Elvis Presley", "Rock")
         self.room.add_song(song)
         expected = song
-        actual = self.room.songs
+        actual = self.room.songs[0]
         self.assertEqual(expected, actual)
 

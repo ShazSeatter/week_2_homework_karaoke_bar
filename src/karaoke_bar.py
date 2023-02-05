@@ -3,6 +3,7 @@ class KaraokeBar:
     def __init__(self, name, total_cash):
         self.name = name
         self.total_cash = total_cash
-        self.total_rooms_available = 5
+        # total rooms in bar 5 
 
-                 
+    def increase_total_cash(self, amount):
+        self.total_cash += amount 

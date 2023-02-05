@@ -5,5 +5,5 @@ class KaraokeBar:
         self.total_cash = total_cash
         # total rooms in bar 5 
 
-    def increase_total_cash(self, amount):
-        self.total_cash += amount 
+    def increase_total_cash(self, amount, entry_fee):
+        self.total_cash += (amount + entry_fee)

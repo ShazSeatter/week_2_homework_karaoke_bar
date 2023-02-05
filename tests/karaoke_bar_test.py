@@ -24,7 +24,9 @@ class TestKaraokeBar(unittest.TestCase):
 
     def test_increase_total_cash(self):
         room = Room(20)
-        self.karaoke_bar.increase_total_cash(room.price)
-        expected = 1020
+        self.karaoke_bar.increase_total_cash(room.price, room.entry_fee)
+        expected = 1025
         actual = self.karaoke_bar.total_cash
         self.assertEqual(expected, actual)
+
+

@@ -2,7 +2,7 @@ import unittest
 from src.room import Room
 from src.song import Song
 from src.guest import Guest
-from src.karaoke_bar import KaraokeBar
+#from src.karaoke_bar import KaraokeBar
 
 
 class TestRoom(unittest.TestCase):
@@ -72,6 +72,7 @@ class TestRoom(unittest.TestCase):
     #     actual = self.room.check_in_guest()
     #     self.assertEqual(expected, actual)
 
+# LOOKING AT THE LENGTH OF THE GUEST LIST 
     def test_room_guest_count(self):
          guest = Guest("John Smith", 50)
          self.room.add_guest(guest)
@@ -79,7 +80,7 @@ class TestRoom(unittest.TestCase):
          actual = self.room.guest_count() #returns length of guest list
          self.assertEqual(expected, actual)
 
-    
+# TOO MANY GUESTS TRYING TO CHECK IN
     def test_too_many_guests_checking_in(self):
         guest_1 = Guest("John Smith", 50)
         guest_2 = Guest("David Doe", 20)
@@ -94,7 +95,8 @@ class TestRoom(unittest.TestCase):
         self.assertEqual(expected, actual)
         self.assertEqual(4, self.room.guest_count())
 
-    
+
+# CHECKING OUT GUEST FROM ROOM 
     def test_check_out_guest(self):
         guest_1 = Guest("John Smith", 50)
         guest_2 = Guest("John Doe", 50)
@@ -104,18 +106,16 @@ class TestRoom(unittest.TestCase):
         expected = 1 # [John Doe]
         actual = self.room.guest_count() # len of guest = 1
         self.assertEqual(expected, actual)
-    
-    # def test_can_sell_pet_to_customer(self):
-    #     customer = Customer("Jack Jarvis", 1000)
-    #     self.pet_shop.sell_pet_to_customer("Sir Percy", customer)
-    #     self.assertEqual(500, customer.cash)
-    #     self.assertEqual(1500, self.pet_shop.total_cash)
-    #     self.assertEqual(1, self.pet_shop.pets_sold)
-    #     self.assertEqual(1, self.pet_shop.stock_count())
-    #     self.assertEqual(1, customer.pet_count())
 
+# GUESTS FAVORITE SONG
+    def test_guest_fav_song__is_listed(self):
+        song_1 = Song("Hound Dog", "Elvis Presley", "Rock")
+        song_2 = Song("If I Can Dream", "Elvis Presley", "Rock")
+        guest = Guest("John Smith", 50)
+        self.room.add_song(song_1) # ["Hound Dog", "If I Can Dream"]
+        self.room.add_song(song_2) # 
+        self.room.add_guest(guest) # [John Smith]
+        expected = "Whoo!"
+        actual = self.room.guest_fav_song("If I Can Dream")
+        self.assertEqual(expected, actual)
 
-
-#    def remove_pet(self, pet_to_remove):
-        # has to be the extact object that was passed in
-        # self.pets.remove(pet_to_remove)

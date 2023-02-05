@@ -5,6 +5,7 @@ class Room:
         self.songs = []
         self.guests = []
         # self.num_of_guests_in_room = 0
+        self.entry_fee = 5
 
     def add_song(self, new_song):
         return self.songs.append(new_song)
@@ -38,3 +39,8 @@ class Room:
     def remove_guest(self, guest_to_remove):
         self.guests.remove(guest_to_remove)
 
+
+    def guest_fav_song(self, song):
+        for fav_song in self.songs:
+            if fav_song.title == song:
+                return "Whoo!"

@@ -12,3 +12,9 @@ class TestKaraokeBar(unittest.TestCase):
         self.assertEqual(expected, actual)
 
     
+    def test_karaoke_bar_has_money(self):
+        expected = 1000
+        actual = self.karaoke_bar.total_cash
+        self.assertEqual(expected, actual)
+
+    

@@ -15,3 +15,8 @@ class TestSong(unittest.TestCase):
         expected = "Elvis Presley"
         actual = self.song.artist
         self.assertEqual(expected, actual)
+
+    def test_song_has_genre(self):
+        expected = "Rock"
+        actual = self.song.genre
+        self.assertEqual(expected, actual)

@@ -6,3 +6,5 @@ class Room:
         self.guests = []
         self.max_num_guests = 5
 
+    def add_song(self, new_song):
+        pass

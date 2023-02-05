@@ -1,5 +1,6 @@
 import unittest
 from src.room import Room
+from src.song import Song
 
 
 class TestRoom(unittest.TestCase):
@@ -21,6 +22,10 @@ class TestRoom(unittest.TestCase):
         actual = self.room.guests
         self.assertEqual(expected, actual)
 
+    def test_add_songs_to_room(self):
+        song = Song("Hound Dog", "Elvis Presley", "Rock")
+        self.room.add_song(song)
+        expected = song
+        actual = self.room.songs
+        self.assertEqual(expected, actual)
 
-    # def test_add_songs_to_room(self):
-    #     self.song = Song()
